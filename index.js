@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
     res.send('Node Task API is running');
 });
 
-app.use('/tasks', taskRoutes);
+app.use('/api/v1/tasks', taskRoutes);
 
 const PORT = process.env.PORT || 8080;
 

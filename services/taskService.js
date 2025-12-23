@@ -19,7 +19,11 @@ function getTaskById(id) {
 
 function updateTask(id, data) {
     const task = getTaskById(id);
-    if (!task) return null;
+    if (!task) {
+        const err = new Error('Task not found');
+        err.status = 404;
+        throw err;
+    }
 
     if (data.title !== undefined) task.title = data.title;
     if (data.completed !== undefined) task.completed = data.completed;
@@ -29,7 +33,11 @@ function updateTask(id, data) {
 
 function deleteTask(id) {
     const index = tasks.findIndex(task => task.id === id);
-    if (index === -1) return false;
+    if (index === -1) {
+        const err = new Error('Task not found');
+        err.status = 404;
+        throw err;
+    }
 
     tasks.splice(index, 1);
     return true;
