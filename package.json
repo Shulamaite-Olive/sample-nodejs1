@@ -1,0 +1,24 @@
+{
+  "name": "sample-nodejs1",
+  "version": "0.1.0",
+  "description": "Readme files",
+  "main": "index.js",
+   "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shulamaite-Olive/sample-nodejs1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Shulamaite-Olive/sample-nodejs1/issues"
+  },
+  "homepage": "https://github.com/Shulamaite-Olive/sample-nodejs1#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
