@@ -1,5 +1,6 @@
 const express = require('express');
 const taskRoutes = require('./routes/taskRoutes');
+const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
 
@@ -11,6 +12,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/tasks', taskRoutes);
 
+app.use(errorHandler);
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {

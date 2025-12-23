@@ -14,16 +14,12 @@ function getAllTasks() {
 }
 
 function getTaskById(id) {
-    return tasks.find(task => task.id === id);
+    return tasks.find(t => t.id === id) || null;
 }
 
 function updateTask(id, data) {
     const task = getTaskById(id);
-    if (!task) {
-        const err = new Error('Task not found');
-        err.status = 404;
-        throw err;
-    }
+    if (!task) return null;
 
     if (data.title !== undefined) task.title = data.title;
     if (data.completed !== undefined) task.completed = data.completed;
@@ -32,12 +28,8 @@ function updateTask(id, data) {
 }
 
 function deleteTask(id) {
-    const index = tasks.findIndex(task => task.id === id);
-    if (index === -1) {
-        const err = new Error('Task not found');
-        err.status = 404;
-        throw err;
-    }
+    const index = tasks.findIndex(t => t.id === id);
+    if (index === -1) return null;
 
     tasks.splice(index, 1);
     return true;
